@@ -4,9 +4,6 @@ import cors from "cors";
 
 const app = express();
 const PORT = 3001;
-
-app.use(express.json());
-app.use("/users", userRoutes);
 app.use(
   cors({
     origin: ["*"],
@@ -14,6 +11,8 @@ app.use(
     allowedHeaders: ["Content-type", "Authorization"],
   })
 );
+app.use(express.json());
+app.use("/users", userRoutes);
 
 app.listen(PORT, () => {
   console.log("APP INICIALIZADO COM SUCESSO", PORT);
